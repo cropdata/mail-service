@@ -5,16 +5,16 @@ from sendgrid.helpers.mail import *
 def sendGridMail(from_email, to_emails, cc_emails, subject, body, api_key):
     """Sendgrid  mail service method"""
 
-    email_list = []
+    personalization = Personalization()
     for email in to_emails:
-        email_list.append(To(email))
+        personalization.add_to(Email(email))
     for email in cc_emails:
-        email_list.append(Cc(email))
+        personalization.add_cc(Email(email))
     message = Mail(
         from_email=from_email,
-        to_emails=email_list,
         subject=subject,
         html_content=body)
+    message.add_personalization(personalization)
     try:
         sendgrid_client = SendGridAPIClient(
             api_key=api_key)
