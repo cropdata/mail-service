@@ -16,6 +16,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/cropdata/mail-service.git"
     },
     license='MIT',
-    packages=['mail-service'],
+    packages=['mail_service'],
     install_requires=['requests', 'sendgrid'],
 )
