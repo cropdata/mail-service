@@ -24,18 +24,20 @@ def sendGridMail(from_email, to_emails, cc_emails, subject, body, api_key):
 
 import smtplib
 import ssl
-from email.message import EmailMessage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 
 def smtpMail(sender_email, receiver_email, password, message, subject=None, cc_email=None):
     port = 587
     smtp_server = 'smtp.gmail.com'
-    msg = EmailMessage()
-    msg.set_content(message)
+    msg = MIMEMultipart('alternative')
     msg["Subject"] = subject
     msg["From"] = sender_email
-    msg["To"] = receiver_email
-    msg["Cc"] = cc_email
+    msg["To"] = ', '.join(receiver_email)
+    msg["Cc"] = ', '.join(cc_email)
+    part2 = MIMEText(message, 'html')
+    msg.attach(part2)
 
     try:
         context = ssl.create_default_context()
