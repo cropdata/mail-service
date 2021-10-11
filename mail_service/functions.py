@@ -16,8 +16,7 @@ def sendGridMail(from_email, to_emails, cc_emails, subject, body, api_key):
         html_content=body)
     message.add_personalization(personalization)
     try:
-        sendgrid_client = SendGridAPIClient(
-            api_key=api_key)
+        sendgrid_client = SendGridAPIClient(api_key=api_key)
         sendgrid_client.send(message)
     except Exception as e:
         print(e)
