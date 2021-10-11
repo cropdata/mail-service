@@ -11,7 +11,7 @@ def sendGridMail(from_email, to_emails, cc_emails, subject, body, api_key):
     for email in cc_emails:
         personalization.add_cc(Email(email))
     message = Mail(
-        from_email=from_email,
+        from_email=Email(from_email),
         subject=subject,
         html_content=body)
     message.add_personalization(personalization)
