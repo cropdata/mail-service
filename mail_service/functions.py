@@ -1,25 +1,25 @@
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import *
+# from sendgrid import SendGridAPIClient
+# from sendgrid.helpers.mail import *
 
 
-def sendGridMail(from_email, to_emails, cc_emails, subject, body, api_key):
-    """Sendgrid  mail service method"""
-
-    personalization = Personalization()
-    for email in to_emails:
-        personalization.add_to(Email(email))
-    for email in cc_emails:
-        personalization.add_cc(Email(email))
-    message = Mail(
-        from_email=Email(from_email),
-        subject=subject,
-        html_content=body)
-    message.add_personalization(personalization)
-    try:
-        sendgrid_client = SendGridAPIClient(api_key=api_key)
-        sendgrid_client.send(message)
-    except Exception as e:
-        print(e)
+# def sendGridMail(from_email, to_emails, cc_emails, subject, body, api_key):
+#     """Sendgrid  mail service method"""
+#
+#     personalization = Personalization()
+#     for email in to_emails:
+#         personalization.add_to(Email(email))
+#     for email in cc_emails:
+#         personalization.add_cc(Email(email))
+#     message = Mail(
+#         from_email=Email(from_email),
+#         subject=subject,
+#         html_content=body)
+#     message.add_personalization(personalization)
+#     try:
+#         sendgrid_client = SendGridAPIClient(api_key=api_key)
+#         sendgrid_client.send(message)
+#     except Exception as e:
+#         print(e)
 
 
 import smtplib

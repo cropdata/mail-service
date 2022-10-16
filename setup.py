@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='mail-service',
-    version='0.6.0',
+    version='0.7.0',
     author='Rishabh Oswal',
     author_email='rishabh.oswal@cropdata.in',
-    description='Testing installation of Package',
+    description='Mail Service Package',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/cropdata/mail-service.git',
@@ -17,5 +17,5 @@ setuptools.setup(
     },
     license='MIT',
     packages=['mail_service'],
-    install_requires=['requests', 'sendgrid'],
+    install_requires=['requests'],
 )
